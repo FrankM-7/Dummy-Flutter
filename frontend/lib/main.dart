@@ -4,20 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 void main() {
-  getUsers();
+  // getUsers();
   runApp(const MyApp());
-}
-
-void getUsers() async {
-  final response = await http.get(Uri.parse('http://127.0.0.1:5000/alex'));
-
-  if (response.statusCode == 200) {
-    print(response.body);
-    // Return the response body as a List of dynamic objects.
-    //return jsonDecode(response.body);
-  } else {
-    throw Exception('Failed to load users');
-  }
 }
 
 class MyApp extends StatelessWidget {
@@ -64,6 +52,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String _userData = '';
+  
+  @override
+  void initState() {
+    super.initState();
+    getUsers();
+  }
+
+  void getUsers() async {
+    final response = await http.get(Uri.parse('http://127.0.0.1:5000/alex'));
+
+    if (response.statusCode == 200) {
+      setState(() {
+        _userData = response.body;
+      });
+    } else {
+      throw Exception('Failed to load users');
+    }
+  }
+
   int _counter = 0;
 
   void _incrementCounter() {
@@ -118,6 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            Text(_userData),
           ],
         ),
       ),
