@@ -1,0 +1,10 @@
+# Nmap 7.93 scan initiated Wed Feb 22 18:12:03 2023 as: nmap -oX - -sV -O -p 80,443 --script http-user-agent --script-args http.useragent,http.useragent-regex=iPhone -oN scan_results.txt 10.226.217.19/24
+NSE: failed to initialize the script engine:
+/usr/local/bin/../share/nmap/nse_main.lua:833: 'http-user-agent' did not match a category, filename, or directory
+stack traceback:
+	[C]: in function 'error'
+	/usr/local/bin/../share/nmap/nse_main.lua:833: in local 'get_chosen_scripts'
+	/usr/local/bin/../share/nmap/nse_main.lua:1344: in main chunk
+	[C]: in ?
+
+QUITTING!
