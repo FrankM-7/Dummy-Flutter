@@ -13,3 +13,9 @@
 4. On your command line, type in ```git pull``` in order to update your local files.
 5. Type ```git checkout <branch_name>``` in order to to switch to your branch.
 
+### Deactivating python environment ###
+1. ```deactivate```
+ 
+### Updating requirements.txt ###
+1. ```pip freeze > requirements.txt```
+
